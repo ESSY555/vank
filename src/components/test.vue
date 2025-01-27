@@ -1,27 +1,5 @@
+
 <template>
-  <div id="app">
-<img src="../assets/images/vank.PNG" alt="">
-
-    <p>this is awesome</p>
-  </div>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-   
-    };
-  },
-};
-</script>
-
-
-
-
-
-
-<!-- <template>
   <div>
     <h1 class="text-blue-300">Home Page</h1>
     <div v-if="quotes && quotes.length > 0">
@@ -62,4 +40,4 @@ export default {
   },
   name: 'About',
 };
-</script> -->
+</script> 
