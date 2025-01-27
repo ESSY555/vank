@@ -66,27 +66,27 @@
 </template>
 
 <script>
-import states from './states.json';  // Import the JSON file containing states
+import states from './states.json';  
 
 export default {
   name: 'PostProperty',
   data() {
     return {
-      states: states,  // Store the list of states
-      selectedState: '',  // Track the selected state
-      localGovernmentAreas: []  // This will store the local government areas based on the selected state
+      states: states,  
+      selectedState: '',  
+      localGovernmentAreas: []  
     };
   },
   methods: {
-    // Handle when a state is selected
+   
     onStateChange() {
-      // Clear the LGAs and fetch new ones based on the selected state
+    
       this.localGovernmentAreas = this.getLGAsForState(this.selectedState);
     },
 
  
     getLGAsForState(stateId) {
-      // Find the state by its id
+    
       const state = this.states.find(state => state.id === stateId);
       
  
