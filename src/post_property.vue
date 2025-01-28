@@ -1,7 +1,7 @@
 <template>
   <div
     class="shadow-lg p-8 -mb-12"
-    style="background-image: url('../src/assets/images/background.PNG'); background-size: cover; background-position: center; height: 100%;"
+    style="background-image: url('../src/assets/images/background.PNG'); background-size: cover; background-position: center; height: 100vh"
   >
     <div class="md:w-5/12 m-auto p-12 bg-white">
       <div class="flex justify-center">
@@ -224,26 +224,28 @@ export default {
       }
     },
     validatePartTwo() {
-      const missingFields = [];
-      const filledData = {
-        uploadedImageUrl1: this.uploadedImageUrl1 ? "Uploaded" : "Not Uploaded",
-        uploadedImageUrl2: this.uploadedImageUrl2 ? "Uploaded" : "Not Uploaded",
-      };
+  const missingFields = [];
+  const filledData = {
+    uploadedImageUrl1: this.uploadedImageUrl1 ? "Uploaded" : "Not Uploaded",
+    uploadedImageUrl2: this.uploadedImageUrl2 ? "Uploaded" : "Not Uploaded",
+  };
 
-      if (!this.uploadedImageUrl1) missingFields.push("Property Document Upload");
-      if (!this.uploadedImageUrl2) missingFields.push("Environment Photo Upload");
+  if (!this.uploadedImageUrl1) missingFields.push("Property Document Upload");
+  if (!this.uploadedImageUrl2) missingFields.push("Environment Photo Upload");
 
-      console.log("Part 2 Filled Data:", filledData);
+  console.log("Part 2 Filled Data:", filledData);
 
-      if (missingFields.length > 0) {
-        console.warn("Part 2 Missing Fields:", missingFields);
-        alert(`Please upload the following files: ${missingFields.join(", ")}`);
-      } else {
-        console.log("Form Submitted Successfully!");
-        alert("Form submitted successfully!");
-        // You can handle the form submission here
-      }
-    },
+  if (missingFields.length > 0) {
+    console.warn("Part 2 Missing Fields:", missingFields);
+    alert(`Please upload the following files: ${missingFields.join(", ")}`);
+  } else {
+    console.log("Form Submitted Successfully!");
+    alert("Form submitted successfully!");
+    // Redirect to the profile-details page
+    this.$router.push("/property-details");
+  }
+}
+
   },
 };
 </script>

@@ -5,13 +5,15 @@
     <img src="../assets/images/vank.PNG" alt="">
   </div>
       <h2 class="text-3xl font-bold mb-6 text-center">Property Details</h2>
-      <div>
-        <button
-          class="px-6 py-2 font-semibold  rounded border my-3 hover:text-white transition-all duration-300 transform hover:bg-blue-600 hover:scale-105 active:bg-blue-700 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
-        >
-          Back to upload
-        </button>
-      </div>
+      <div class="mb-4">
+  <router-link
+    to="/"
+    class="px-6 py-2 font-semibold rounded border my-3 hover:text-white transition-all duration-300 transform hover:bg-blue-600 hover:scale-105 active:bg-blue-700 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+  >
+    Back to upload
+  </router-link>
+</div>
+
       <form @submit.prevent="handleSubmit" class="space-y-4">
   
         <!-- Title -->
@@ -247,38 +249,45 @@
     },
     
     methods: {
-      selectOption(option) {
-        this.selectedOption = this.selectedOption === option ? null : option;
-      },
-      handleSubmit() {
-        const requiredFields = ['title', 'type', 'squareMeters', 'address', 'description', 'price', 'phoneNumber', 'name'];
-        for (let field of requiredFields) {
-          if (!this.form[field]) {
-            alert(`Please fill in the ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}.`);
-            return;
-          }
-        }
-  
-  
-        if (!this.selectedOption) {
-          alert('Please select at least one document.');
-          return;
-        }
-  
-        console.log("Form Data:", this.form);
-        alert("Form submitted successfully!");
-        this.form = {
-          title: "",
-          type: "",
-          squareMeters: "",
-          address: "",
-          description: "",
-          price: "",
-          phoneNumber: "",
-          name: "",
-        };
-      },
-    },
+  selectOption(option) {
+    this.selectedOption = this.selectedOption === option ? null : option;
+  },
+  handleSubmit() {
+    const requiredFields = ['title', 'type', 'squareMeters', 'address', 'description', 'price', 'phoneNumber', 'name'];
+
+    for (let field of requiredFields) {
+      if (!this.form[field]) {
+        alert(`Please fill in the ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}.`);
+        return;
+      }
+    }
+
+
+    if (!this.selectedOption) {
+      alert('Please select at least one document.');
+      return;
+    }
+
+
+    if (!this.selectedOptionRadio) {
+      alert('Please select an option for "Are you open to negotiation?".');
+      return;
+    }
+
+    if (!this.secondOptionRadio) {
+      alert('Please select an option for "Are you happy to have your plot sold fractionally?".');
+      return;
+    }
+
+    console.log('Form submitted successfully', this.form, {
+      selectedOption: this.selectedOption,
+      selectedOptionRadio: this.selectedOptionRadio,
+      secondOptionRadio: this.secondOptionRadio,
+    });
+    alert('Form submitted successfully!');
+  },
+},
+
     name: 'property-details',
   };
   </script>
