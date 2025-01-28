@@ -62,7 +62,7 @@
         />
       </div>
 
-      <!-- Address -->
+
       <div>
         <div class="flex">
           <label class="block text-sm font-medium text-gray-700" for="Address">Address</label>
@@ -77,7 +77,6 @@
         />
       </div>
 
-      <!-- Property Documents -->
       <div>
         <div class="flex">
           <label class="block text-sm font-medium text-gray-700" for="Price">Property Documents</label>
@@ -95,7 +94,7 @@
         </div>
       </div>
 
-      <!-- Description -->
+
       <div>
         <div class="flex">
           <label class="block text-sm font-medium text-gray-700" for="Description">Description</label>
@@ -110,7 +109,6 @@
         ></textarea>
       </div>
 
-      <!-- Price -->
       <div>
         <div class="flex">
           <label class="block text-sm font-medium text-gray-700" for="Price">Price</label>
@@ -148,7 +146,6 @@
         </div>
       </div>
 
-      <!-- Phone Number and Name -->
       <div class="flex gap-3">
         <div class="flex-1">
           <div class="flex">
@@ -235,7 +232,7 @@ export default {
       selectedOptionRadio: null,
       secondOptionRadio: null,
       options: ['CFO', 'Deed of Assignment', 'Gazette', "Governor's Consent"], 
-      selectedOption: null, // Tracks the currently selected option
+      selectedOption: null, 
       form: {
         title: "",
         type: "",
@@ -254,7 +251,6 @@ export default {
       this.selectedOption = this.selectedOption === option ? null : option;
     },
     handleSubmit() {
-      // Validate all required fields
       const requiredFields = ['title', 'type', 'squareMeters', 'address', 'description', 'price', 'phoneNumber', 'name'];
       for (let field of requiredFields) {
         if (!this.form[field]) {
@@ -263,7 +259,7 @@ export default {
         }
       }
 
-      // Check if a document is selected
+
       if (!this.selectedOption) {
         alert('Please select at least one document.');
         return;
