@@ -1,7 +1,7 @@
 <template>
   <div
     class="shadow-lg p-8 -mb-12"
-    style="background-image: url('../src/assets/images/background.PNG'); background-size: cover; background-position: center; height: 100vh"
+    style="background-image: url('../src/assets/images/background.PNG'); background-size: cover; background-position: center; height: 100%"
   >
     <div class="md:w-5/12 m-auto p-12 bg-white">
       <div class="flex justify-center">
@@ -93,7 +93,7 @@
       </div>
 
       <!-- Part 2: Upload Documents -->
-      <div v-if="currentPart === 2">
+      <div class="" v-if="currentPart === 2">
         <p class="font-bold text-center">Step 1: Upload Property Documents</p>
         <p class="text-gray-500 pt-4">Please upload relevant property documents (deeds, certificates, etc).</p>
 
